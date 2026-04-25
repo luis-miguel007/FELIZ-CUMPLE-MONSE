@@ -1,48 +1,220 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feliz Cumpleaños Monse 🌻</title>
+<title>Feliz Cumpleaños Monse 🎉</title>
+
 <style>
-body{margin:0;font-family:'Segoe UI',sans-serif;overflow:hidden}
-.container{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory}
-.section{width:100vw;height:100vh;display:flex;justify-content:center;align-items:center;flex-direction:column;scroll-snap-align:start;position:relative}/* 🌻 HERO */ .hero{ background:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat; } .hero::after{ content:'';position:absolute;inset:0; background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,.2)); } .hero h1{ position:relative;z-index:2; color:#ffeb3b; text-shadow:0 0 10px rgba(0,0,0,.9),0 0 20px rgba(0,0,0,.7); text-align:center;font-size:3em; background:rgba(0,0,0,.6); padding:20px 40px;border-radius:20px; }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
 
-/* 🌈 CARDS ARCOIRIS SUAVE */ .card{ width:85%;max-width:600px; padding:30px;border-radius:25px; color:#222; box-shadow:0 10px 30px rgba(0,0,0,.25); background:linear-gradient(135deg, rgba(255,0,150,0.2), rgba(0,204,255,0.2), rgba(255,255,0,0.2)); backdrop-filter:blur(10px); }
+body{
+    overflow-x:hidden;
+    background:#fffaf5;
+}
 
-.card h2{margin-bottom:10px} .card p{font-size:1.1em}
+/* 🌻 PORTADA CON TU IMAGEN BASE64 */
+.hero{
+    height:100vh;
+    background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/..."); /* ← pega aquí TODA tu cadena completa */
+    background-size: cover;
+    background-position: center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
 
-/* 🎈 GLOBOS MEJORADOS */ .balloon{ position:fixed; width:45px;height:60px; border-radius:50%; background:radial-gradient(circle at 30% 30%, #ffffffcc, var(--c)); box-shadow: inset -10px -15px 25px rgba(0,0,0,.3), 0 5px 15px rgba(0,0,0,.3); animation:rise 7s linear forwards; } .balloon::after{ content:''; position:absolute; width:2px;height:50px; background:#555; left:50%;top:100%; } @keyframes rise{to{transform:translateY(-120vh);opacity:0}}
+.hero::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.25);
+}
 
-/* 🎊 CONFETI */ .confetti{position:fixed;width:8px;height:8px;animation:fall 3s linear forwards} @keyframes fall{to{transform:translateY(120vh) rotate(720deg);opacity:0}}
+/* TEXTO PORTADA */
+.hero h1{
+    position:relative;
+    color:#fff;
+    font-size:3em;
+    text-align:center;
+    text-shadow:0 0 20px rgba(0,0,0,0.6);
+    animation:fadeIn 2s ease;
+}
 
-.footer{background:#ffcc80;color:#5d4037}
+/* 🎨 VIÑETAS PASTEL */
+.section{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+}
+
+.card{
+    width:80%;
+    max-width:600px;
+    padding:30px;
+    border-radius:25px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    font-size:1.3em;
+    text-align:center;
+    animation:fadeUp 1s ease;
+}
+
+/* 🌈 COLORES PASTEL SUAVES */
+.pastel1{ background:#ffe4ec; } /* rosado suave */
+.pastel2{ background:#fff6d6; } /* amarillo pastel */
+.pastel3{ background:#e4f9f5; } /* verde agua */
+.pastel4{ background:#e8e4ff; } /* lila */
+.pastel5{ background:#ffdede; } /* coral suave */
+
+/* TEXTO */
+.card h2{
+    margin-bottom:15px;
+    color:#333;
+}
+
+.card p{
+    color:#444;
+}
+
+/* 🎈 GLOBOS MÁS REALES */
+.balloon{
+    position:fixed;
+    bottom:-100px;
+    width:40px;
+    height:50px;
+    border-radius:50%;
+    background: radial-gradient(circle at 30% 30%, #fff, #ff4d6d);
+    animation:float 10s linear infinite;
+}
+
+.balloon::after{
+    content:"";
+    position:absolute;
+    width:2px;
+    height:40px;
+    background:#555;
+    top:50px;
+    left:50%;
+}
+
+/* 🎊 CONFETI */
+.confetti{
+    position:fixed;
+    width:10px;
+    height:10px;
+    background:red;
+    top:-10px;
+    animation:fall 5s linear infinite;
+}
+
+/* ANIMACIONES */
+@keyframes float{
+    0%{ transform:translateY(0);}
+    100%{ transform:translateY(-120vh);}
+}
+
+@keyframes fall{
+    0%{ transform:translateY(0);}
+    100%{ transform:translateY(100vh);}
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:scale(0.8);}
+    to{opacity:1; transform:scale(1);}
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(50px);}
+    to{opacity:1; transform:translateY(0);}
+}
 
 </style>
 </head>
-<body><div class="container" onscroll="celebrar()"><div class="section hero">
-  <h1>🎂 Feliz Cumpleaños Monse 🌻</h1>
-</div><div class="section"><div class="card"><h2>🎵 Música</h2><p>Tu vida tiene una banda sonora única. Que cada canción te recuerde lo increíble que eres.</p></div></div>
-<div class="section"><div class="card"><h2>📚 Libros</h2><p>Cada página que lees construye mundos. Nunca dejes de soñar entre historias.</p></div></div>
-<div class="section"><div class="card"><h2>🎌 Anime</h2><p>Tu historia es digna de un anime. Sigue siendo protagonista de algo increíble.</p></div></div>
-<div class="section"><div class="card"><h2>🍳 Cocina</h2><p>Todo lo que haces tiene un toque especial. Sigues creando momentos inolvidables.</p></div></div>
-<div class="section"><div class="card"><h2>🎬 Películas</h2><p>Tu vida es una película hermosa llena de emociones y recuerdos únicos.</p></div></div><div class="section footer"><div class="card"><h2>🌻 Para ti</h2><p>Feliz cumpleaños Monse 💛 que este día sea tan especial como tú.</p></div></div></div><script>
-function celebrar(){
- for(let i=0;i<6;i++){
-  let c=document.createElement('div');
-  c.className='confetti';
-  c.style.left=Math.random()*100+'vw';
-  c.style.background=['#ff5252','#ffd740','#69f0ae','#40c4ff'][Math.floor(Math.random()*4)];
-  document.body.appendChild(c);
-  setTimeout(()=>c.remove(),3000);
 
-  let b=document.createElement('div');
-  b.className='balloon';
-  b.style.left=Math.random()*100+'vw';
-  b.style.setProperty('--c',['#ff80ab','#82b1ff','#ffd180','#a7ffeb'][Math.floor(Math.random()*4)]);
-  document.body.appendChild(b);
-  setTimeout(()=>b.remove(),7000);
- }
-}
-</script></body>
+<body>
+
+<!-- 🌻 PORTADA -->
+<div class="hero">
+    <h1>🌻 Feliz Cumpleaños Monse 🎂</h1>
+</div>
+
+<!-- 🎉 VIÑETAS -->
+<div class="section">
+    <div class="card pastel1">
+        <h2>🎶 Música</h2>
+        <p>Que cada canción te recuerde lo increíble que eres y todo lo bonito que traes al mundo.</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="card pastel2">
+        <h2>📚 Libros</h2>
+        <p>Tu historia es una de las más bonitas… y apenas va comenzando.</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="card pastel3">
+        <h2>🎌 Anime</h2>
+        <p>Como en tus historias favoritas, eres una protagonista única y especial.</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="card pastel4">
+        <h2>🍰 Cocina</h2>
+        <p>Que tu vida siempre tenga dulzura, amor y momentos para saborear.</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="card pastel5">
+        <h2>🎬 Películas</h2>
+        <p>Hoy celebramos una historia hermosa: la tuya.</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="card pastel3">
+        <h2>💛 Final</h2>
+        <p>Feliz cumpleaños Monse, que este día sea tan especial como tú 🌻</p>
+    </div>
+</div>
+
+<script>
+
+/* 🎈 GENERAR GLOBOS */
+setInterval(()=>{
+    let b=document.createElement("div");
+    b.className="balloon";
+    b.style.left=Math.random()*100+"vw";
+    document.body.appendChild(b);
+
+    setTimeout(()=>b.remove(),10000);
+},800);
+
+/* 🎊 GENERAR CONFETI */
+setInterval(()=>{
+    let c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.background=`hsl(${Math.random()*360},100%,70%)`;
+    document.body.appendChild(c);
+
+    setTimeout(()=>c.remove(),5000);
+},200);
+
+</script>
+
+</body>
 </html>
