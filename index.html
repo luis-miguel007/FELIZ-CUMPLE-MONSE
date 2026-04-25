@@ -6,53 +6,27 @@
 <style>
 body{margin:0;font-family:'Segoe UI',sans-serif;overflow:hidden}
 .container{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory}
-.section{width:100vw;height:100vh;display:flex;justify-content:center;align-items:center;flex-direction:column;scroll-snap-align:start;position:relative}/* 🌻 HERO REALISTA */ .hero{ background:url('https://images.unsplash.com/photo-1470509037663-253afd7f0f51?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat; } .hero::after{ content:'';position:absolute;inset:0; background:linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,.1)); } .hero h1{ position:relative;z-index:2;color:#fff;text-align:center; font-size:3em;background:rgba(0,0,0,.5); padding:20px 40px;border-radius:20px; animation:fadeIn 2s ease } @keyframes fadeIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+.section{width:100vw;height:100vh;display:flex;justify-content:center;align-items:center;flex-direction:column;scroll-snap-align:start;position:relative}/* 🌻 HERO */ .hero{ background:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat; } .hero::after{ content:'';position:absolute;inset:0; background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,.2)); } .hero h1{ position:relative;z-index:2; color:#ffeb3b; text-shadow:0 0 10px rgba(0,0,0,.9),0 0 20px rgba(0,0,0,.7); text-align:center;font-size:3em; background:rgba(0,0,0,.6); padding:20px 40px;border-radius:20px; }
 
-/* 🎴 CARDS */ .card{width:85%;max-width:600px;background:#ffffffee;padding:30px;border-radius:25px;box-shadow:0 10px 30px rgba(0,0,0,.25);text-align:center} .card h2{margin-bottom:10px} .card p{font-size:1.1em}
+/* 🌈 CARDS ARCOIRIS SUAVE */ .card{ width:85%;max-width:600px; padding:30px;border-radius:25px; color:#222; box-shadow:0 10px 30px rgba(0,0,0,.25); background:linear-gradient(135deg, rgba(255,0,150,0.2), rgba(0,204,255,0.2), rgba(255,255,0,0.2)); backdrop-filter:blur(10px); }
 
-.music{background:#6a1b9a} .books{background:#3e2723} .anime{background:#ad1457} .cooking{background:#ef6c00} .movies{background:#0d47a1} .section:not(.hero){color:white}
+.card h2{margin-bottom:10px} .card p{font-size:1.1em}
+
+/* 🎈 GLOBOS MEJORADOS */ .balloon{ position:fixed; width:45px;height:60px; border-radius:50%; background:radial-gradient(circle at 30% 30%, #ffffffcc, var(--c)); box-shadow: inset -10px -15px 25px rgba(0,0,0,.3), 0 5px 15px rgba(0,0,0,.3); animation:rise 7s linear forwards; } .balloon::after{ content:''; position:absolute; width:2px;height:50px; background:#555; left:50%;top:100%; } @keyframes rise{to{transform:translateY(-120vh);opacity:0}}
+
+/* 🎊 CONFETI */ .confetti{position:fixed;width:8px;height:8px;animation:fall 3s linear forwards} @keyframes fall{to{transform:translateY(120vh) rotate(720deg);opacity:0}}
 
 .footer{background:#ffcc80;color:#5d4037}
 
-/* 🎈 GLOBOS REALISTAS */ .balloon{position:fixed;width:40px;height:55px;border-radius:50%; background:radial-gradient(circle at 30% 30%, #fff, var(--c)); box-shadow:inset -5px -10px 20px rgba(0,0,0,.2); animation:rise 6s linear forwards} .balloon::after{content:'';position:absolute;width:2px;height:40px;background:#555;left:50%;top:100%} @keyframes rise{to{transform:translateY(-110vh);opacity:0}}
-
-/* 🎊 CONFETI */ .confetti{position:fixed;width:8px;height:8px;opacity:.9;animation:fall 3s linear forwards} @keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
-
 </style>
 </head>
-<body><div class="container" onscroll="celebrar()"><!-- 🌻 PORTADA --><div class="section hero">
+<body><div class="container" onscroll="celebrar()"><div class="section hero">
   <h1>🎂 Feliz Cumpleaños Monse 🌻</h1>
-</div><!-- 🎵 --><div class="section music">
-  <div class="card">
-    <h2>🎵 Música</h2>
-    <p>Tu vida tiene una banda sonora única. Que cada canción te recuerde lo increíble que eres y todo lo bonito que te espera.</p>
-  </div>
-</div><!-- 📚 --><div class="section books">
-  <div class="card">
-    <h2>📚 Libros</h2>
-    <p>Cada página que lees construye mundos dentro de ti. Que nunca te falten historias donde perderte y soñar.</p>
-  </div>
-</div><!-- 🎌 --><div class="section anime">
-  <div class="card">
-    <h2>🎌 Anime</h2>
-    <p>Como en tus animes favoritos, tu historia apenas comienza. Sigue siendo protagonista de algo increíble.</p>
-  </div>
-</div><!-- 🍳 --><div class="section cooking">
-  <div class="card">
-    <h2>🍳 Cocina</h2>
-    <p>Todo lo que haces tiene ese toque especial. Que sigas creando momentos dulces y recuerdos inolvidables.</p>
-  </div>
-</div><!-- 🎬 --><div class="section movies">
-  <div class="card">
-    <h2>🎬 Películas</h2>
-    <p>Tu vida es como una gran película: llena de emociones, aventuras y momentos que valen oro.</p>
-  </div>
-</div><!-- 💛 FINAL --><div class="section footer">
-  <div class="card">
-    <h2>🌻 Para ti</h2>
-    <p>Gracias por existir, por tu luz y por todo lo que haces especial. Hoy celebramos tu vida. Feliz cumpleaños Monse 💛</p>
-  </div>
-</div></div><script>
+</div><div class="section"><div class="card"><h2>🎵 Música</h2><p>Tu vida tiene una banda sonora única. Que cada canción te recuerde lo increíble que eres.</p></div></div>
+<div class="section"><div class="card"><h2>📚 Libros</h2><p>Cada página que lees construye mundos. Nunca dejes de soñar entre historias.</p></div></div>
+<div class="section"><div class="card"><h2>🎌 Anime</h2><p>Tu historia es digna de un anime. Sigue siendo protagonista de algo increíble.</p></div></div>
+<div class="section"><div class="card"><h2>🍳 Cocina</h2><p>Todo lo que haces tiene un toque especial. Sigues creando momentos inolvidables.</p></div></div>
+<div class="section"><div class="card"><h2>🎬 Películas</h2><p>Tu vida es una película hermosa llena de emociones y recuerdos únicos.</p></div></div><div class="section footer"><div class="card"><h2>🌻 Para ti</h2><p>Feliz cumpleaños Monse 💛 que este día sea tan especial como tú.</p></div></div></div><script>
 function celebrar(){
  for(let i=0;i<6;i++){
   let c=document.createElement('div');
@@ -67,7 +41,7 @@ function celebrar(){
   b.style.left=Math.random()*100+'vw';
   b.style.setProperty('--c',['#ff80ab','#82b1ff','#ffd180','#a7ffeb'][Math.floor(Math.random()*4)]);
   document.body.appendChild(b);
-  setTimeout(()=>b.remove(),6000);
+  setTimeout(()=>b.remove(),7000);
  }
 }
 </script></body>
