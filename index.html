@@ -4,87 +4,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Feliz Cumpleaños Monse 🌻</title>
 <style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    overflow: hidden;
-}.container { height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; }
+body { margin:0; font-family:'Segoe UI',sans-serif; overflow:hidden; }.container { height:100vh; overflow-y:scroll; scroll-snap-type:y mandatory; } .section { width:100vw; height:100vh; display:flex; justify-content:center; align-items:center; flex-direction:column; scroll-snap-align:start; position:relative; }
 
-.section { width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; scroll-snap-align: start; position: relative; }
+/* 🌻 PORTADA REALISTA */ .hero { background: linear-gradient(to top, #fdd835 0%, #fffde7 40%, #87ceeb 100%); overflow:hidden; }
 
-/* 🌻 PORTADA REALISTA */ .hero { background: linear-gradient(#87ceeb, #fffde7); overflow: hidden; }
+/* Campo más denso */ .field { position:absolute; bottom:0; width:100%; height:60%; background: repeating-linear-gradient( 90deg, #2e7d32, #2e7d32 10px, #388e3c 10px, #388e3c 20px ); }
 
-.sunflower-field { position: absolute; bottom: 0; width: 100%; display: flex; justify-content: space-around; }
+.sunflower { position:absolute; bottom:40px; width:70px; height:70px; background: radial-gradient(circle, #4e342e 30%, #fdd835 60%); border-radius:50%; animation:sway 4s infinite ease-in-out; }
 
-.sunflower { width: 80px; height: 120px; background: radial-gradient(circle, #5d4037 20%, #ffeb3b 60%); border-radius: 50%; position: relative; animation: sway 3s infinite ease-in-out; }
+.sunflower::after { content:''; position:absolute; width:8px; height:90px; background:#2e7d32; left:50%; top:100%; transform:translateX(-50%); }
 
-.sunflower::after { content: ''; position: absolute; width: 10px; height: 80px; background: green; left: 50%; top: 100%; transform: translateX(-50%); }
+@keyframes sway { 0%,100% { transform:rotate(-4deg); } 50% { transform:rotate(4deg); } }
 
-@keyframes sway { 0%,100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+.hero h1 { z-index:2; font-size:3em; background:rgba(255,255,255,0.9); padding:20px 40px; border-radius:20px; box-shadow:0 10px 20px rgba(0,0,0,0.2); }
 
-.hero h1 { font-size: 3em; background: rgba(255,255,255,0.9); padding: 20px 40px; border-radius: 20px; z-index: 2; }
+/* 🎉 TARJETAS */ .card { width:80%; max-width:500px; background:white; padding:30px; border-radius:25px; box-shadow:0 10px 25px rgba(0,0,0,0.2); text-align:center; }
 
-/* 🎉 TARJETAS */ .card { width: 80%; max-width: 500px; background: white; padding: 30px; border-radius: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); text-align: center; }
+textarea { width:100%; height:100px; border-radius:10px; border:2px dashed #ccc; padding:10px; margin-top:10px; }
 
-/* ✍️ AREA EDITABLE */ textarea { width: 100%; height: 100px; border-radius: 10px; border: 2px dashed #ccc; padding: 10px; margin-top: 10px; }
+/* 🎨 TEMAS */ .music{background:#fce4ec;} .books{background:#e3f2fd;} .anime{background:#f3e5f5;} .cooking{background:#e8f5e9;} .movies{background:#fff3e0;}
 
-/* 🎨 TEMÁTICAS */ .music { background: #fce4ec; } .books { background: #e3f2fd; } .anime { background: #f3e5f5; } .cooking { background: #e8f5e9; } .movies { background: #fff3e0; }
+.icon{font-size:40px;} .footer{background:#ffcc80;}
 
-.icon { font-size: 40px; }
+/* 🎈 CONFETI Y GLOBOS */ .confetti, .balloon { position:fixed; pointer-events:none; }
 
-.footer { background: #ffcc80; }
+.confetti { width:8px; height:8px; background:red; animation:fall 3s linear forwards; }
+
+@keyframes fall { to { transform:translateY(100vh) rotate(360deg); opacity:0; } }
+
+.balloon { width:30px; height:40px; background:pink; border-radius:50%; animation:rise 5s linear forwards; }
+
+@keyframes rise { to { transform:translateY(-100vh); opacity:0; } }
 
 </style>
 </head>
-<body><div class="container"><!-- 🌻 PORTADA --><div class="section hero">
+<body><div class="container" onscroll="celebrar()"><!-- 🌻 PORTADA --><div class="section hero">
     <h1>🎂 Feliz Cumpleaños Monse 🌻</h1>
-    <div class="sunflower-field">
-        <div class="sunflower"></div>
-        <div class="sunflower"></div>
-        <div class="sunflower"></div>
-        <div class="sunflower"></div>
-        <div class="sunflower"></div>
-    </div>
-</div><!-- 🎶 MÚSICA --><div class="section music">
-    <div class="card">
-        <div class="icon">🎵</div>
-        <h2>Tu amor por la música</h2>
-        <p>✍️ Escribe aquí tu mensaje:</p>
-        <textarea placeholder="Escribe algo especial sobre su amor por la música..."></textarea>
-    </div>
-</div><!-- 📚 LIBROS --><div class="section books">
-    <div class="card">
-        <div class="icon">📚</div>
-        <h2>Tu mundo de libros</h2>
-        <p>✍️ Escribe aquí tu mensaje:</p>
-        <textarea placeholder="Algo bonito sobre sus lecturas..."></textarea>
-    </div>
-</div><!-- 🎌 ANIME --><div class="section anime">
-    <div class="card">
-        <div class="icon">🎌</div>
-        <h2>Tu pasión por el anime</h2>
-        <p>✍️ Escribe aquí tu mensaje:</p>
-        <textarea placeholder="Algo genial sobre su anime favorito..."></textarea>
-    </div>
-</div><!-- 🍳 COCINA --><div class="section cooking">
-    <div class="card">
-        <div class="icon">🍳</div>
-        <h2>Tu talento en la cocina</h2>
-        <p>✍️ Escribe aquí tu mensaje:</p>
-        <textarea placeholder="Algo delicioso que quieras decir..."></textarea>
-    </div>
-</div><!-- 🎬 PELIS --><div class="section movies">
-    <div class="card">
-        <div class="icon">🎬</div>
-        <h2>Tu amor por las películas</h2>
-        <p>✍️ Escribe aquí tu mensaje:</p>
-        <textarea placeholder="Un mensaje de película..."></textarea>
-    </div>
-</div><!-- 👋 FINAL --><div class="section footer">
-    <div class="card">
-        <h2>🌻 Para Monse</h2>
-        <p>✍️ Mensaje final:</p>
-        <textarea placeholder="Tu despedida especial..."></textarea>
-    </div>
-</div></div></body>
+    <div class="field"></div>
+    <!-- flores distribuidas -->
+    <div class="sunflower" style="left:10%"></div>
+    <div class="sunflower" style="left:25%"></div>
+    <div class="sunflower" style="left:40%"></div>
+    <div class="sunflower" style="left:55%"></div>
+    <div class="sunflower" style="left:70%"></div>
+    <div class="sunflower" style="left:85%"></div>
+</div><!-- SECCIONES --><div class="section music"><div class="card"><div class="icon">🎵</div><h2>Música</h2><textarea placeholder="✍️ Escribe aquí tu mensaje especial para Monse..."></textarea>
+        <p style="margin-top:10px; font-size:0.9em; color:#777;">💡 Puedes editar este mensaje para personalizar esta parte</p></textarea></div></div>
+<div class="section books"><div class="card"><div class="icon">📚</div><h2>Libros</h2><textarea placeholder="✍️ Escribe aquí tu mensaje especial para Monse..."></textarea>
+        <p style="margin-top:10px; font-size:0.9em; color:#777;">💡 Puedes editar este mensaje para personalizar esta parte</p></textarea></div></div>
+<div class="section anime"><div class="card"><div class="icon">🎌</div><h2>Anime</h2><textarea placeholder="✍️ Escribe aquí tu mensaje especial para Monse..."></textarea>
+        <p style="margin-top:10px; font-size:0.9em; color:#777;">💡 Puedes editar este mensaje para personalizar esta parte</p></textarea></div></div>
+<div class="section cooking"><div class="card"><div class="icon">🍳</div><h2>Cocina</h2><textarea placeholder="✍️ Escribe aquí tu mensaje especial para Monse..."></textarea>
+        <p style="margin-top:10px; font-size:0.9em; color:#777;">💡 Puedes editar este mensaje para personalizar esta parte</p></textarea></div></div>
+<div class="section movies"><div class="card"><div class="icon">🎬</div><h2>Películas</h2><textarea placeholder="✍️ Escribe aquí tu mensaje especial para Monse..."></textarea>
+        <p style="margin-top:10px; font-size:0.9em; color:#777;">💡 Puedes editar este mensaje para personalizar esta parte</p></textarea></div></div><div class="section footer"><div class="card"><h2>🌻 Final</h2><textarea placeholder="✍️ Escribe aquí tu despedida especial..."></textarea>
+        <p style="margin-top:10px; font-size:0.9em; color:#777;">💛 Este es el mensaje final, hazlo emotivo</p></textarea></div></div></div><script>
+function celebrar(){
+    for(let i=0;i<5;i++){
+        let c=document.createElement('div');
+        c.className='confetti';
+        c.style.left=Math.random()*100+'vw';
+        c.style.background=['#f44336','#ffeb3b','#4caf50','#2196f3'][Math.floor(Math.random()*4)];
+        document.body.appendChild(c);
+        setTimeout(()=>c.remove(),3000);
+
+        let b=document.createElement('div');
+        b.className='balloon';
+        b.style.left=Math.random()*100+'vw';
+        b.style.background=['pink','lightblue','yellow','orange'][Math.floor(Math.random()*4)];
+        document.body.appendChild(b);
+        setTimeout(()=>b.remove(),5000);
+    }
+}
+</script></body>
 </html>
